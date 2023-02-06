@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://newgame.gd" type="Script" id=1]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 376.0
+margin_top = 296.0
+margin_right = 632.0
+margin_bottom = 360.0
+text = "Start new game"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
