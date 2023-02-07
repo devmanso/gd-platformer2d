@@ -6,7 +6,7 @@ onready var animator = $AnimationPlayer
 
 
 export var walkspeed = 200
-export var jump_power = -800
+export var jump_power = -900
 export var gravity = 3000
 export var acceleration = 0.25
 export var friction = 0.1

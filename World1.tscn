@@ -1,51 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://RollableRock.tscn" type="PackedScene" id=3]
 
 [node name="World1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 344, 224 )
+position = Vector2( 64, 376 )
 scale = Vector2( 2, 2 )
 
-[node name="Wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 176, 264 )
-
-[node name="Wall2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 280, 328 )
-
-[node name="Wall5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 368, 304 )
-
-[node name="Wall6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 432, 304 )
-
-[node name="Wall7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 496, 304 )
-
-[node name="Wall8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 224 )
-
 [node name="Wall9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 392 )
-
-[node name="Wall10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 320 )
-
-[node name="Wall11" parent="." instance=ExtResource( 1 )]
-position = Vector2( -80, 264 )
-
-[node name="Wall12" parent="." instance=ExtResource( 1 )]
-position = Vector2( -160, 224 )
-
-[node name="Wall13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 112, 288 )
+position = Vector2( 1920, 1080 )
 
 [node name="Wall3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 368, 456 )
 scale = Vector2( 11.44, 1 )
 
+[node name="Wall5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8, 160 )
+rotation = 1.5708
+scale = Vector2( 11.44, 1 )
+
+[node name="Wall6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1072, 160 )
+rotation = 1.5708
+scale = Vector2( 11.44, 1 )
+
 [node name="Wall4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1080, 456 )
 scale = Vector2( 11.44, 1 )
+
+[node name="RollableRock" parent="." instance=ExtResource( 3 )]
+position = Vector2( 144, 384 )
