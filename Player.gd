@@ -16,6 +16,7 @@ export var gravity = 2500
 export var acceleration = 0.25
 export var friction = 0.1
 
+var can_play_jump_anim
 var idle = true
 var up
 var right
@@ -24,6 +25,7 @@ var is_attacking
 var jumps_made = 0
 var velocity = Vector2.ZERO
 var motion = Vector2.ZERO
+
 
 #const TARGET_FPS = 60
 #const ACCELERATION = 8
@@ -136,24 +138,44 @@ func get_input():
 #			velocity.y = jump_power
 
 func _physics_process(delta):
-	get_input()
+	#get_input()
+#	if Input.is_action_pressed("jump"):
+#		if is_on_floor():
+#			right = false
+#			left = false
+#			idle = false
+#			animator.play("jump")
+#			velocity.y = jump_power
+#			up = false
+#			jumps_made +=1
+#		elif !is_on_floor():
+#			up = true
+#	if Input.is_action_just_released("jump"):
+#		idle = true
+	if Input.is_action_pressed("right"):
+		velocity.x = walkspeed
+		animator.play("walking")
+		sprite.flip_h = false
+	elif Input.is_action_pressed("left"):
+		velocity.x = -walkspeed
+		sprite.flip_h = true
+		animator.play("walking")
+	else:
+		animator.play("RESET")
+	
+	if !is_on_floor():
+		animator.play("single_frame_jump")
+	
+	if Input.is_action_pressed("jump") and is_on_floor():
+		velocity.y = jump_power
+	
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
-	if Input.is_action_pressed("jump"):
-		if is_on_floor():
-			right = false
-			left = false
-			idle = false
-			animator.play("jump")
-			velocity.y = jump_power
-			up = false
-			jumps_made +=1
-		elif !is_on_floor():
-			up = true
-	if Input.is_action_just_released("jump"):
-		idle = true
+	velocity.x = lerp(velocity.x, 0, 0.2)
 	
-		
+	
+
+
 
 func _ready():
 	animator.connect("animation_finished", self, "_on_jump_animation_finished")

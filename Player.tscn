@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/AnimationSheet_Character.png" type="Texture" id=2]
@@ -76,7 +76,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 resource_name = "jump"
 length = 0.8
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -88,6 +87,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 41, 42, 43, 44, 45, 46, 47, 48 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "single_frame_jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 44 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -126,6 +141,11 @@ anims/attack = SubResource( 6 )
 anims/idle = SubResource( 3 )
 anims/instant_attack = SubResource( 7 )
 anims/jump = SubResource( 5 )
+anims/single_frame_jump = SubResource( 8 )
 anims/walking = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_v_enabled = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
