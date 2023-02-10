@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+#note to self:
+# credit https://penzilla.itch.io/hooded-protagonist
+# in a README file
+# before uploading to git
+
 onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
 onready var animator = $AnimationPlayer
@@ -7,7 +12,7 @@ onready var animator = $AnimationPlayer
 
 export var walkspeed = 200
 export var jump_power = -900
-export var gravity = 3000
+export var gravity = 2500
 export var acceleration = 0.25
 export var friction = 0.1
 
@@ -15,22 +20,33 @@ var idle = true
 var up
 var right
 var left
+var is_attacking
 var jumps_made = 0
 var velocity = Vector2.ZERO
 var motion = Vector2.ZERO
 
-const TARGET_FPS = 60
-const ACCELERATION = 8
-const MAX_SPEED = 64
-const FRICTION = 10
-const AIR_RESISTANCE = 1
-const GRAVITY = 4
-const JUMP_FORCE = 140
+#const TARGET_FPS = 60
+#const ACCELERATION = 8
+#const MAX_SPEED = 64
+#const FRICTION = 10
+#const AIR_RESISTANCE = 1
+#const GRAVITY = 4
+#const JUMP_FORCE = 140
 
 
 
 func get_input():
 	var dir = 0
+#	if Input.is_action_pressed("attack"):
+#		right = false
+#		left = false
+#		idle = false
+#		is_attacking = true
+#		if is_attacking:
+#			animator.play("instant_attack")
+#	if Input.is_action_just_released("attack"):
+#		idle = true
+#		is_attacking = false
 	if Input.is_action_pressed("right"):
 		dir += 1
 		right = true
