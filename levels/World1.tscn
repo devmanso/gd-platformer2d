@@ -37,9 +37,9 @@ scale = Vector2( 2, 2 )
 position = Vector2( 144, 384 )
 
 [node name="SceneChanger" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1056, 528 )
+position = Vector2( 1064, 872 )
 scale = Vector2( 3.9588, 1.17924 )
-next_scene = "Menu.tscn"
+next_scene = "levels/World2.tscn"
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 472 )
@@ -443,4 +443,116 @@ scale = Vector2( 8, 8 )
 
 [node name="Wall62" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1032, -168 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall102" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1224, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall103" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1416, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall104" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1608, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall105" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1800, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall106" parent="." instance=ExtResource( 1 )]
+position = Vector2( -696, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall107" parent="." instance=ExtResource( 1 )]
+position = Vector2( -504, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall108" parent="." instance=ExtResource( 1 )]
+position = Vector2( -312, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall109" parent="." instance=ExtResource( 1 )]
+position = Vector2( -120, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall110" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall111" parent="." instance=ExtResource( 1 )]
+position = Vector2( 264, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall112" parent="." instance=ExtResource( 1 )]
+position = Vector2( 456, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall113" parent="." instance=ExtResource( 1 )]
+position = Vector2( 648, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall114" parent="." instance=ExtResource( 1 )]
+position = Vector2( 840, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall115" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1032, -296 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall116" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1224, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall117" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1416, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall118" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1608, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall119" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1800, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall120" parent="." instance=ExtResource( 1 )]
+position = Vector2( -696, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall121" parent="." instance=ExtResource( 1 )]
+position = Vector2( -504, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall122" parent="." instance=ExtResource( 1 )]
+position = Vector2( -312, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall123" parent="." instance=ExtResource( 1 )]
+position = Vector2( -120, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall124" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall125" parent="." instance=ExtResource( 1 )]
+position = Vector2( 264, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall126" parent="." instance=ExtResource( 1 )]
+position = Vector2( 456, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall127" parent="." instance=ExtResource( 1 )]
+position = Vector2( 648, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall128" parent="." instance=ExtResource( 1 )]
+position = Vector2( 840, -424 )
+scale = Vector2( 8, 8 )
+
+[node name="Wall129" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1032, -424 )
 scale = Vector2( 8, 8 )
