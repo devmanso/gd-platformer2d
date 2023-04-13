@@ -11,6 +11,7 @@ font_data = ExtResource( 1 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_scale = Vector2( 0.25, 0.25 )
 
 [node name="DialogBox" type="Control" parent="."]
 anchor_left = 0.515
@@ -38,3 +39,5 @@ margin_right = 1720.0
 margin_bottom = 344.0
 custom_fonts/normal_font = SubResource( 1 )
 text = "Hello, World."
+
+[node name="Tween" type="Tween" parent="DialogBox"]
