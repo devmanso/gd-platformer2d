@@ -1,0 +1,9 @@
+F:\dev\GD_proj\platformer2d\.mono\temp\obj\Debug\platformer2d.csproj.AssemblyReference.cache
+F:\dev\GD_proj\platformer2d\.mono\temp\obj\Debug\platformer2d.GeneratedMSBuildEditorConfig.editorconfig
+F:\dev\GD_proj\platformer2d\.mono\temp\obj\Debug\platformer2d.AssemblyInfoInputs.cache
+F:\dev\GD_proj\platformer2d\.mono\temp\obj\Debug\platformer2d.AssemblyInfo.cs
+F:\dev\GD_proj\platformer2d\.mono\temp\obj\Debug\platformer2d.csproj.CoreCompileInputs.cache
+F:\dev\GD_proj\platformer2d\.mono\temp\bin\Debug\platformer2d.dll
+F:\dev\GD_proj\platformer2d\.mono\temp\bin\Debug\platformer2d.pdb
+F:\dev\GD_proj\platformer2d\.mono\temp\obj\Debug\platformer2d.dll
+F:\dev\GD_proj\platformer2d\.mono\temp\obj\Debug\platformer2d.pdb

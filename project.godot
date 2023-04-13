@@ -43,6 +43,10 @@ attack={
  ]
 }
 
+[mono]
+
+project/assembly_name="platformer2d"
+
 [physics]
 
 common/enable_pause_aware_picking=true
