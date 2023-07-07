@@ -6,6 +6,7 @@
 
 [node name="RollableRock" type="RigidBody2D"]
 gravity_scale = 3.5
+continuous_cd = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
