@@ -28,6 +28,7 @@ var velocity = Vector2.ZERO
 var motion = Vector2.ZERO
 var upsideDown = false
 
+
 func flip_gravity():
 	gravity = -2500
 	upsideDown = true
@@ -80,9 +81,7 @@ func get_input():
 #		elif !up:
 #			animator.play("RESET")
 		velocity.x = lerp(velocity.x, 0, friction)
-			
-		
-		
+	
 
 func kb_input():
 	
