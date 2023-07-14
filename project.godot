@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Health",
 "language": "GDScript",
-"path": "res://Health.gd"
+"path": "res://scripts/Health.gd"
 } ]
 _global_script_class_icons={
 "Health": ""

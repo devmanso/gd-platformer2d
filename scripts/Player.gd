@@ -8,7 +8,7 @@ extends KinematicBody2D
 onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
 onready var animator = $AnimationPlayer
-
+onready var health = $Health
 
 export var walkspeed = 300
 export var jump_power = -900
@@ -113,19 +113,16 @@ func kb_input():
 
 func _physics_process(delta):
 	kb_input()
-	
+	if health.hp <= 0:
+		die()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x, 0, 0.2)
 	
 	
 
-
-
-func _ready():
-	pass
-
-
+func die():
+	queue_free()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "jump":
