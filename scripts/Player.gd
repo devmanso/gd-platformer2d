@@ -27,7 +27,13 @@ var jumps_made = 0
 var velocity = Vector2.ZERO
 var motion = Vector2.ZERO
 var upsideDown = false
+var spawnpoint
 
+enum LifeState {
+	alive,
+	hurt,
+	dead
+}
 
 func flip_gravity():
 	gravity = -2500
@@ -85,6 +91,9 @@ func get_input():
 
 func kb_input():
 	
+	if Input.is_action_pressed("test"):
+		respawn()
+	
 	if Input.is_action_pressed("gravity"):
 		flip_gravity()
 	
@@ -115,11 +124,18 @@ func _physics_process(delta):
 	kb_input()
 	if health.hp <= 0:
 		die()
+		LifeState.dead
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x, 0, 0.2)
-	
-	
+
+func _process(delta):
+	if LifeState.dead:
+		pass
+
+func respawn():
+	spawnpoint = get_parent().find_node("SpawnPoint")
+	position = spawnpoint.position
 
 func die():
 	queue_free()
