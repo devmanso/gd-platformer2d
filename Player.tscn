@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://art/AnimationSheet_Character.png" type="Texture" id=2]
 [ext_resource path="res://Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/SEGOEPRB.TTF" type="DynamicFontData" id=4]
 
 [sub_resource type="CapsuleShape2D" id=9]
 
@@ -122,6 +123,10 @@ tracks/0/keys = {
 "values": [ 16, 17, 18, 19 ]
 }
 
+[sub_resource type="DynamicFont" id=10]
+size = 13
+font_data = ExtResource( 4 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -152,5 +157,15 @@ current = true
 zoom = Vector2( 0.75, 0.75 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+
+[node name="DeathScreen" type="TextEdit" parent="."]
+margin_left = -96.0
+margin_top = -72.0
+margin_right = 120.0
+margin_bottom = -32.0
+custom_fonts/font = SubResource( 10 )
+text = "You are dead!
+Press Enter to restart"
+readonly = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

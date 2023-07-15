@@ -9,6 +9,7 @@ onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
 onready var animator = $AnimationPlayer
 onready var health = $Health
+onready var deathscreen = $DeathScreen
 
 export var walkspeed = 300
 export var jump_power = -900
@@ -28,12 +29,22 @@ var velocity = Vector2.ZERO
 var motion = Vector2.ZERO
 var upsideDown = false
 var spawnpoint
-
-enum LifeState {
-	alive,
-	hurt,
-	dead
-}
+var life = true
+var rng = RandomNumberGenerator.new()
+var text_to_show
+var death_text_id
+var deaths = 0
+var death_text = [
+	"You are dead!",
+	"HAHAHAHAHAHA",
+	"HAHAHAHAHAHAHHAHAHHAHHAHAHAHAHAHHAHHAHHAHHAHAHHAHAHHAHAA",
+	"Try again?",
+	"This text is randomized -_-",
+	":(",
+	"walrus gaming :<",
+	"press Alt+F4 to activate cheats",
+	"https://youtu.be/dQw4w9WgXcQ"
+]
 
 func flip_gravity():
 	gravity = -2500
@@ -91,9 +102,6 @@ func get_input():
 
 func kb_input():
 	
-	if Input.is_action_pressed("test"):
-		respawn()
-	
 	if Input.is_action_pressed("gravity"):
 		flip_gravity()
 	
@@ -121,24 +129,37 @@ func kb_input():
 	
 
 func _physics_process(delta):
-	kb_input()
+	if life:
+		kb_input()
 	if health.hp <= 0:
 		die()
-		LifeState.dead
+		life = false
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x, 0, 0.2)
 
 func _process(delta):
-	if LifeState.dead:
-		pass
+	if !life:
+		if Input.is_action_pressed("test"):
+			respawn()
+
+func _ready():
+	life = true
+	deathscreen.hide()
 
 func respawn():
 	spawnpoint = get_parent().find_node("SpawnPoint")
 	position = spawnpoint.position
+	life = true
+	deathscreen.hide()
 
 func die():
-	queue_free()
+	life = false
+	death_text_id = rng.randi_range(0, death_text.size() -1)
+	text_to_show = death_text[death_text_id]
+	deathscreen.text = text_to_show
+	deathscreen.show()
+	deaths +=1
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "jump":

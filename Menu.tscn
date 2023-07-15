@@ -5,10 +5,10 @@
 [node name="Menu" type="Node2D"]
 
 [node name="Button" type="Button" parent="."]
-margin_left = 376.0
-margin_top = 296.0
-margin_right = 632.0
-margin_bottom = 360.0
+margin_left = 888.0
+margin_top = 520.0
+margin_right = 1144.0
+margin_bottom = 584.0
 text = "Start new game"
 script = ExtResource( 1 )
 
