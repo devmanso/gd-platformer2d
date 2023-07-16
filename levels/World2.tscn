@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://SpawnPoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Wall.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Basket.tscn" type="PackedScene" id=8]
 [ext_resource path="res://BallSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/SceneChanger.tscn" type="PackedScene" id=10]
 
 [node name="World2" type="Node2D"]
 
@@ -21,6 +22,10 @@ scale = Vector2( 2, 2 )
 position = Vector2( 2560, -224 )
 speed = 500
 isYaxis = false
+
+[node name="SceneChanger" parent="MovingPlatform" instance=ExtResource( 10 )]
+position = Vector2( -168, -72 )
+next_scene = "levels/World3.tscn"
 
 [node name="KillBrick" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 792 )
@@ -56,10 +61,11 @@ position = Vector2( 1272, 8.00001 )
 rotation = -1.39626
 
 [node name="Ball" parent="." instance=ExtResource( 7 )]
-position = Vector2( 568, -64 )
+position = Vector2( 640, -64 )
 
 [node name="BallSpawner" parent="." instance=ExtResource( 9 )]
 margin_left = 608.0
 margin_top = -128.0
 margin_right = 748.0
 margin_bottom = -96.0
+spawnPosition = Vector2( 640, -64 )

@@ -127,6 +127,7 @@ func _ready():
 	deathscreen.hide()
 
 func respawn():
+	release_gravity()
 	spawnpoint = get_parent().find_node("SpawnPoint")
 	position = spawnpoint.position
 	life = true

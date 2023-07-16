@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/KillBrick.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SpawnPoint.tscn" type="PackedScene" id=4]
 
 [node name="World3" type="Node2D"]
 
+[node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
+position = Vector2( 128, 32 )
+scale = Vector2( 2, 2 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 32 )
+position = Vector2( 128, 32 )
 scale = Vector2( 2, 2 )
 
 [node name="Wall" parent="." instance=ExtResource( 2 )]

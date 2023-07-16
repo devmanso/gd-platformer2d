@@ -66,4 +66,4 @@ rotation = 3.14159
 scale = Vector2( 100, 2 )
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 120, 232 )
+position = Vector2( 128, 320 )

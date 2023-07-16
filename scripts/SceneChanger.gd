@@ -4,7 +4,8 @@ onready var sprite = $Sprite
 export var next_scene = ""
 
 func _ready():
-	sprite.hide()
+	pass
+	#sprite.hide()
 
 func _on_SceneChanger_body_entered(body):
 	if body.name == "Player":
