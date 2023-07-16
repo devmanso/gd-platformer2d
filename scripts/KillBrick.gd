@@ -9,6 +9,8 @@ func _ready():
 func _on_KillArea_body_entered(body):
 	if "Player" in body.name:
 		body.die()
+	if "Ball" in body.name:
+		body.queue_free()
 
 func _on_KillArea_body_exited(body):
 	pass

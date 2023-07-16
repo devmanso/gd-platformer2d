@@ -60,5 +60,10 @@ position = Vector2( 1216, 472 )
 position = Vector2( 1328, 1088 )
 scale = Vector2( 100, 2 )
 
+[node name="KillBrick2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1288, -192 )
+rotation = 3.14159
+scale = Vector2( 100, 2 )
+
 [node name="SpawnPoint" parent="." instance=ExtResource( 4 )]
 position = Vector2( 120, 232 )

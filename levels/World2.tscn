@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://SpawnPoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Wall.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://assets/MovingPlatform.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/KillBrick.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/HiddenGroup.gd" type="Script" id=6]
-[ext_resource path="res://RollableRock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Basket.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BallSpawner.tscn" type="PackedScene" id=9]
 
 [node name="World2" type="Node2D"]
 
@@ -23,6 +24,11 @@ isYaxis = false
 
 [node name="KillBrick" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 792 )
+scale = Vector2( 100, 2 )
+
+[node name="KillBrick2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 80, -624 )
+rotation = 3.14159
 scale = Vector2( 100, 2 )
 
 [node name="HiddenGroup" type="Node2D" parent="."]
@@ -45,9 +51,15 @@ position = Vector2( 512, 16 )
 [node name="Wall3" parent="VisibleGroup" instance=ExtResource( 2 )]
 position = Vector2( 896, 16 )
 
-[node name="RollableRock" parent="." instance=ExtResource( 7 )]
-position = Vector2( 520, -64 )
-
 [node name="Basket" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1272, 8.00001 )
 rotation = -1.39626
+
+[node name="Ball" parent="." instance=ExtResource( 7 )]
+position = Vector2( 568, -64 )
+
+[node name="BallSpawner" parent="." instance=ExtResource( 9 )]
+margin_left = 608.0
+margin_top = -128.0
+margin_right = 748.0
+margin_bottom = -96.0

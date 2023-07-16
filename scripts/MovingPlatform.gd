@@ -6,6 +6,7 @@ export var isYaxis = true
 var initPosition: Vector2
 var endPosition: Vector2
 var isMoving = false
+var resetPosition = false
 
 func _ready():
 	initPosition = position
@@ -33,7 +34,16 @@ func _process(delta):
 			elif speed < 0 and position.x <= endPosition.x:
 				position.x = endPosition.x
 				isMoving = false
+	if resetPosition:
+		if !isMoving:
+			position = initPosition
 
 func _on_ObjectDetector_body_entered(body):
 	if "Player" in body.name:
 		isMoving = true
+		resetPosition = false
+
+
+func _on_ObjectDetector_body_exited(body):
+	if "Player" in body.name:
+		resetPosition = true

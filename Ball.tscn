@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="RollableRock" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D"]
 gravity_scale = 3.5
 continuous_cd = 1
 

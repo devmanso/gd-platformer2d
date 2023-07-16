@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/BallSpawner.gd" type="Script" id=1]
+
+[node name="BallSpawner" type="Button"]
+margin_right = 80.0
+margin_bottom = 32.0
+text = "click to spawn a ball"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_BallSpawner_pressed"]
