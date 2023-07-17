@@ -11,6 +11,7 @@ onready var animator = $AnimationPlayer
 onready var health = $Health
 onready var deathscreen = $DeathScreen
 onready var dash = $Dash
+onready var respawnbutton = $RespawnButton
 
 export var walkspeed = 300
 export var jump_power = -900
@@ -112,15 +113,12 @@ func input(delta):
 		elif Input.is_action_just_pressed("dash") and airDash <=maxAirDashes:
 			
 			if Input.is_action_just_pressed("dash"):
-				print("added")
 				airDash +=1
 			
 			if Input.is_action_pressed("right"):
-				print("airdash")
 				velocity.x = currentSpeed
 				velocity.y = -currentSpeed * airDashBoost
 			elif Input.is_action_pressed("left"):
-				print("airdash")
 				velocity.x = -currentSpeed
 				velocity.y = -currentSpeed * airDashBoost
 	
@@ -151,10 +149,12 @@ func _process(delta):
 	if !life:
 		if Input.is_action_pressed("test"):
 			respawn()
+		
 
 func _ready():
 	life = true
 	deathscreen.hide()
+	respawnbutton.hide()
 
 func respawn():
 	release_gravity()
@@ -162,6 +162,7 @@ func respawn():
 	position = spawnpoint.position
 	life = true
 	deathscreen.hide()
+	respawnbutton.hide()
 
 func die():
 	life = false
@@ -169,8 +170,14 @@ func die():
 	text_to_show = death_text[death_text_id]
 	deathscreen.text = text_to_show
 	deathscreen.show()
+	respawnbutton.show()
 	deaths +=1
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "jump":
 		print("jump fin")
+
+
+func _on_RespawnButton_pressed():
+	if !life:
+		respawn()
