@@ -30,7 +30,7 @@ export var death_text = [
 ]
 export var dashspeed = 1000.0
 export var duration = .2
-
+export var maxAirDashes = 2
 
 const airDashBoost = 3
 
@@ -109,7 +109,7 @@ func input(delta):
 			velocity.y = jump_power
 		elif is_on_ceiling():
 			velocity.y = inversed_jump_power
-		elif Input.is_action_just_pressed("dash") and airDash <=100:
+		elif Input.is_action_just_pressed("dash") and airDash <=maxAirDashes:
 			
 			if Input.is_action_just_pressed("dash"):
 				print("added")
@@ -118,11 +118,11 @@ func input(delta):
 			if Input.is_action_pressed("right"):
 				print("airdash")
 				velocity.x = currentSpeed
-				velocity.y = -currentSpeed * 3
+				velocity.y = -currentSpeed * airDashBoost
 			elif Input.is_action_pressed("left"):
 				print("airdash")
 				velocity.x = -currentSpeed
-				velocity.y = -currentSpeed * 3
+				velocity.y = -currentSpeed * airDashBoost
 	
 #	if Input.is_action_pressed("jump") and is_on_floor():
 #		velocity.y = jump_power
