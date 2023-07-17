@@ -33,6 +33,9 @@ position = Vector2( 1104, -200 )
 [node name="Wall3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 680, 128 )
 
+[node name="Wall7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1384, 128 )
+
 [node name="KillBrick" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 656 )
 scale = Vector2( 100, 2 )

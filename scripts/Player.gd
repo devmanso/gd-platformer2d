@@ -17,10 +17,27 @@ export var jump_power = -900
 export var acceleration = 0.25
 export var friction = 0.1
 export var gravity = 2500
+export var death_text = [
+	"You are dead!",
+	"HAHAHAHAHAHA",
+	"HAHAHAHAHAHAHHAHAHHAHHAHAHAHAHAHHAHHAHHAHHAHAHHAHAHHAHAA",
+	"Try again?",
+	"This text is randomized -_-",
+	":(",
+	"walrus gaming :<",
+	"press Alt+F4 to activate cheats",
+	"https://youtu.be/dQw4w9WgXcQ"
+]
+export var dashspeed = 1000.0
+export var duration = .2
+
+
+const airDashBoost = 3
 
 #var facing
 #var dashSpeed = 1000
 var canDash = true
+var airDash = 0
 #var dashing = false
 #var dashDirection = Vector2.ZERO
 var inversed_jump_power = -1 * jump_power
@@ -40,19 +57,6 @@ var rng = RandomNumberGenerator.new()
 var text_to_show
 var death_text_id
 var deaths = 0
-var death_text = [
-	"You are dead!",
-	"HAHAHAHAHAHA",
-	"HAHAHAHAHAHAHHAHAHHAHHAHAHAHAHAHHAHHAHHAHHAHAHHAHAHHAHAA",
-	"Try again?",
-	"This text is randomized -_-",
-	":(",
-	"walrus gaming :<",
-	"press Alt+F4 to activate cheats",
-	"https://youtu.be/dQw4w9WgXcQ"
-]
-var dashspeed = 1000.0
-var duration = .2
 
 
 func flip_gravity():
@@ -66,6 +70,10 @@ func release_gravity():
 	sprite.flip_v = false
 	jump_power = -900
 
+#
+#func resetAirDash():
+#	yield(get_tree().create_timer(.5), "timeout")
+#	airDash = true
 
 func input(delta):
 	
@@ -96,10 +104,30 @@ func input(delta):
 		animator.play("single_frame_jump")
 	
 	
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = jump_power
-	elif Input.is_action_pressed("jump") and is_on_ceiling():
-		velocity.y = inversed_jump_power
+	if Input.is_action_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_power
+		elif is_on_ceiling():
+			velocity.y = inversed_jump_power
+		elif Input.is_action_just_pressed("dash") and airDash <=100:
+			
+			if Input.is_action_just_pressed("dash"):
+				print("added")
+				airDash +=1
+			
+			if Input.is_action_pressed("right"):
+				print("airdash")
+				velocity.x = currentSpeed
+				velocity.y = -currentSpeed * 3
+			elif Input.is_action_pressed("left"):
+				print("airdash")
+				velocity.x = -currentSpeed
+				velocity.y = -currentSpeed * 3
+	
+#	if Input.is_action_pressed("jump") and is_on_floor():
+#		velocity.y = jump_power
+#	elif Input.is_action_pressed("jump") and is_on_ceiling():
+#		velocity.y = inversed_jump_power
 	
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -108,8 +136,10 @@ func input(delta):
 func _physics_process(delta):
 	if is_on_floor():
 		dash.has_dashed = false
+		airDash = 0
 	if is_on_ceiling():
 		dash.has_dashed = false
+		airDash = 0
 	if life:
 		input(delta)
 	if health.hp <= 0:
