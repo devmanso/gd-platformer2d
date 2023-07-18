@@ -14,6 +14,11 @@ func _ready():
 		endPosition = Vector2(initPosition.x, initPosition.y + yUnitsMoved)
 	else:
 		endPosition = Vector2(initPosition.x + yUnitsMoved, initPosition.y)
+	
+#	if isNegative and isYaxis:
+#		endPosition = Vector2(initPosition.x, initPosition.y - yUnitsMoved)
+#	elif isNegative and !isYaxis:
+#		endPosition = Vector2(initPosition.x - yUnitsMoved, initPosition.y)
 
 func _process(delta):
 	if isYaxis:

@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/KillBrick.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SpawnPoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://art/movement_info.png" type="Texture" id=5]
-[ext_resource path="res://art/whitebg.png" type="Texture" id=6]
+[ext_resource path="res://WhiteBg.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/test.gd" type="Script" id=7]
 [ext_resource path="res://assets/SceneChanger.tscn" type="PackedScene" id=8]
 
@@ -16,11 +16,8 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="Whitebg" type="Sprite" parent="."]
-visible = false
-position = Vector2( 10056, 12648 )
-scale = Vector2( 99999, 99999 )
-texture = ExtResource( 6 )
+[node name="WhiteBg" parent="." instance=ExtResource( 6 )]
+position = Vector2( 128, 312 )
 
 [node name="MovementInfo" type="Sprite" parent="."]
 position = Vector2( 320, 176 )
@@ -32,9 +29,9 @@ position = Vector2( 128, 320 )
 scale = Vector2( 2, 2 )
 
 [node name="SceneChanger" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2176, 280 )
-scale = Vector2( 3.9588, 1.17924 )
+position = Vector2( 2344, 256 )
 next_scene = "levels/World2.tscn"
+facingRight = false
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 192, 392 )
