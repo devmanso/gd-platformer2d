@@ -31,7 +31,7 @@ export var death_text = [
 ]
 export var dashspeed = 1000.0
 export var duration = .2
-export var maxAirDashes = 2
+export var maxAirDashes = 1
 
 const airDashBoost = 3
 
