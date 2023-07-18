@@ -22,15 +22,15 @@ position = Vector2( -8, -8 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 scale = Vector2( 2, 2 )
 
-[node name="MovingPlatform" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2560, -224 )
-speed = 500
-isYaxis = false
-
-[node name="SceneChanger" parent="MovingPlatform" instance=ExtResource( 10 )]
-position = Vector2( 56, -104 )
+[node name="SceneChanger" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2784, -336 )
 next_scene = "levels/World3.tscn"
 facingRight = false
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2632, -224 )
+speed = 500
+isYaxis = false
 
 [node name="KillBrick" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 792 )
