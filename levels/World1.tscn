@@ -31,7 +31,6 @@ scale = Vector2( 2, 2 )
 [node name="SceneChanger" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2344, 256 )
 next_scene = "levels/World2.tscn"
-facingRight = false
 
 [node name="Wall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 192, 392 )

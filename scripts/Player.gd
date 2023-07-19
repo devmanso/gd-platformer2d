@@ -12,6 +12,7 @@ onready var health = $Health
 onready var deathscreen = $DeathScreen
 onready var dash = $Dash
 onready var respawnbutton = $RespawnButton
+onready var menubutton = $GiveUp
 
 export var walkspeed = 300
 export var jump_power = -900
@@ -58,7 +59,7 @@ var rng = RandomNumberGenerator.new()
 var text_to_show
 var death_text_id
 var deaths = 0
-
+var switchCounter = 0
 
 func flip_gravity():
 	gravity = -2500
@@ -76,6 +77,12 @@ func release_gravity():
 #	yield(get_tree().create_timer(.5), "timeout")
 #	airDash = true
 
+func is_even(num):
+	if num %2 == 0:
+		return true
+	else:
+		return false
+
 func input(delta):
 	
 	var currentSpeed = dashspeed if dash.is_dashing() else walkspeed
@@ -83,11 +90,13 @@ func input(delta):
 	if Input.is_action_just_pressed("dash") and !dash.has_dashed:
 		dash.start_dash(duration)
 	
-	if Input.is_action_pressed("gravity"):
-		flip_gravity()
-	
-	if Input.is_action_pressed("release"):
-		release_gravity()
+	if Input.is_action_just_pressed("gravity"):
+		if !is_even(switchCounter) or switchCounter == 0:
+			flip_gravity()
+			switchCounter += 1
+		else:
+			switchCounter +=1
+			release_gravity()
 	
 	if Input.is_action_pressed("right"):
 		velocity.x = currentSpeed #walkspeed
@@ -155,6 +164,7 @@ func _ready():
 	life = true
 	deathscreen.hide()
 	respawnbutton.hide()
+	menubutton.hide()
 
 func respawn():
 	release_gravity()
@@ -162,6 +172,7 @@ func respawn():
 	position = spawnpoint.position
 	life = true
 	deathscreen.hide()
+	menubutton.hide()
 	respawnbutton.hide()
 
 func die():
@@ -170,6 +181,7 @@ func die():
 	text_to_show = death_text[death_text_id]
 	deathscreen.text = text_to_show
 	deathscreen.show()
+	menubutton.show()
 	respawnbutton.show()
 	deaths +=1
 
@@ -181,3 +193,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_RespawnButton_pressed():
 	if !life:
 		respawn()
+
+
+func _on_GiveUp_pressed():
+	get_tree().change_scene("res://Menu.tscn")

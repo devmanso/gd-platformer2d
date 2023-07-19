@@ -18,3 +18,9 @@ func _process(delta):
 
 func _on_BackToMenu_pressed():
 	get_tree().change_scene("res://Menu.tscn")
+
+
+func _on_ClearSaves_pressed():
+	var save = File.new()
+	save.open("user://save.txt", File.WRITE)
+	save.store_string(" ") # overrites all saves

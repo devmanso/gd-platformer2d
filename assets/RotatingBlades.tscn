@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/KillBrick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/RotatingBlades.gd" type="Script" id=3]
+
+[node name="RotatingBlades" type="Node2D"]
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 3 )
+
+[node name="Wall" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 0.498107, 2.74462 )
+
+[node name="Blades" type="Node2D" parent="."]
+
+[node name="KillBrick" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( -240, 8 )
+rotation = 3.14159
+isVisible = true
+
+[node name="KillBrick5" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( -240, 8 )
+isVisible = true
+
+[node name="KillBrick3" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( 0, 232 )
+rotation = 1.5708
+isVisible = true
+
+[node name="KillBrick8" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( 0, 232 )
+rotation = -1.5708
+isVisible = true
+
+[node name="KillBrick4" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( 0, -232 )
+rotation = 1.5708
+isVisible = true
+
+[node name="KillBrick7" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( 0, -232 )
+rotation = -1.5708
+isVisible = true
+
+[node name="KillBrick2" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( 240, -8 )
+isVisible = true
+
+[node name="KillBrick6" parent="Blades" instance=ExtResource( 1 )]
+position = Vector2( 240, -8 )
+rotation = 3.14159
+isVisible = true

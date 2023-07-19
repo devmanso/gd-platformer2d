@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://SpawnPoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Wall.tscn" type="PackedScene" id=2]
@@ -11,11 +11,17 @@
 [ext_resource path="res://BallSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/SceneChanger.tscn" type="PackedScene" id=10]
 [ext_resource path="res://WhiteBg.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/dash_howto.png" type="Texture" id=12]
 
 [node name="World2" type="Node2D"]
 
 [node name="WhiteBg" parent="." instance=ExtResource( 11 )]
 position = Vector2( -8, -8 )
+
+[node name="DashHowto" type="Sprite" parent="."]
+position = Vector2( 1176, -192 )
+scale = Vector2( 0.628, 0.628 )
+texture = ExtResource( 12 )
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 1 )]
 
@@ -25,7 +31,6 @@ scale = Vector2( 2, 2 )
 [node name="SceneChanger" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2784, -336 )
 next_scene = "levels/World3.tscn"
-facingRight = false
 
 [node name="MovingPlatform" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2632, -224 )
@@ -61,8 +66,8 @@ position = Vector2( 512, 16 )
 position = Vector2( 896, 16 )
 
 [node name="Basket" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1272, 8.00001 )
-rotation = -1.39626
+position = Vector2( 1272, 72 )
+rotation = -0.438078
 
 [node name="Ball" parent="." instance=ExtResource( 7 )]
 position = Vector2( 640, -64 )
