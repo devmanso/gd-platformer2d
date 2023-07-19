@@ -13,6 +13,7 @@ onready var deathscreen = $DeathScreen
 onready var dash = $Dash
 onready var respawnbutton = $RespawnButton
 onready var menubutton = $GiveUp
+onready var camera = $Cam
 
 export var walkspeed = 300
 export var jump_power = -900

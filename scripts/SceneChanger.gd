@@ -30,6 +30,7 @@ func _on_SceneChanger_body_entered(body):
 		isClosed = true
 		var player = get_parent().find_node("Player")
 		player.hide()
+		player.camera.current = false
 		yield(get_tree().create_timer(.85), "timeout")
 		get_tree().change_scene(next_scene)
 	else:

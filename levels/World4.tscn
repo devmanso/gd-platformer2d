@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/KillBrick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/SceneChanger.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Wall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/RotatingBlades.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1664, 64, 0, 0, 0, 0, 1600, 208, 0, 0, 0, 0, 1664, 312, 0, 0, 0, 0, 1728, 192, 0, 0, 0, 0, 1664, 64 )
+}
 
 [node name="World4" type="Node2D"]
 
@@ -62,3 +67,14 @@ position = Vector2( 1016, -144 )
 
 [node name="RotatingBlades3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1288, -152 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1664, 64 )
+rotation = 1.989
+
+[node name="RotatingBlades4" parent="Path2D/PathFollow2D" instance=ExtResource( 7 )]
+rotation = -1.5708
+isOnPath = true
