@@ -58,6 +58,7 @@ scale = Vector2( 100, 2 )
 
 [node name="SceneChanger" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1984, 56 )
+next_scene = "levels/World5.tscn"
 
 [node name="RotatingBlades" parent="." instance=ExtResource( 7 )]
 position = Vector2( 568, 72 )

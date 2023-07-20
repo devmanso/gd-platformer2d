@@ -184,11 +184,14 @@ func die():
 	deathscreen.show()
 	menubutton.show()
 	respawnbutton.show()
+	animator.play("dead")
 	deaths +=1
 
+
+
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "jump":
-		print("jump fin")
+	if anim_name == "dead":
+		print("death anim finished")
 
 
 func _on_RespawnButton_pressed():
