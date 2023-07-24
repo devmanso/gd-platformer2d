@@ -61,6 +61,7 @@ var text_to_show
 var death_text_id
 var deaths = 0
 var switchCounter = 0
+var isInteracting : bool
 
 func flip_gravity():
 	gravity = -2500
@@ -120,7 +121,7 @@ func input(delta):
 			velocity.y = jump_power
 		elif is_on_ceiling():
 			velocity.y = inversed_jump_power
-		elif Input.is_action_just_pressed("dash") and airDash <=maxAirDashes:
+		elif Input.is_action_just_pressed("dash") and airDash <maxAirDashes:
 			
 			if Input.is_action_just_pressed("dash"):
 				airDash +=1
@@ -132,14 +133,12 @@ func input(delta):
 				velocity.x = -currentSpeed
 				velocity.y = -currentSpeed * airDashBoost
 	
-#	if Input.is_action_pressed("jump") and is_on_floor():
-#		velocity.y = jump_power
-#	elif Input.is_action_pressed("jump") and is_on_ceiling():
-#		velocity.y = inversed_jump_power
-	
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
+
+func is_interact_pressed():
+	return Input.is_action_pressed("interact")
 
 func _physics_process(delta):
 	if is_on_floor():
@@ -156,6 +155,8 @@ func _physics_process(delta):
 	
 
 func _process(delta):
+	if life:
+		isInteracting = is_interact_pressed()
 	if !life:
 		if Input.is_action_pressed("test"):
 			respawn()
@@ -186,8 +187,6 @@ func die():
 	respawnbutton.show()
 	animator.play("dead")
 	deaths +=1
-
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "dead":
