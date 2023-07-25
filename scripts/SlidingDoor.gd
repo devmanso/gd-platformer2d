@@ -43,3 +43,8 @@ func _process(delta):
 		if !isMoving:
 			position = initPosition
 
+
+
+func _on_KeyChecker_body_entered(body):
+	if "key" in body.name:
+		isMoving = true
