@@ -62,6 +62,7 @@ var death_text_id
 var deaths = 0
 var switchCounter = 0
 var isInteracting : bool
+var tileSwitch
 
 func flip_gravity():
 	gravity = -2500

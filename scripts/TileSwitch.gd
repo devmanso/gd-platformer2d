@@ -1,8 +1,9 @@
 extends StaticBody2D
 
+onready var sprite = $Sprite
+export var on : bool = false
 var pinkTiles
 var player
-export var on : bool = false
 var canInteract : bool
 var doInteractCheck : bool
 
@@ -28,10 +29,12 @@ func _process(delta):
 		if player.is_interact_pressed():
 			pinkTiles.disable_collision()
 			pinkTiles.hide()
+			sprite.flip_h = true
 	elif canInteract and on:
 		if player.is_interact_pressed():
 			pinkTiles.enable_collision()
 			pinkTiles.show()
+			sprite.flip_h = true
 
 
 func _on_InteractZone_body_exited(body):

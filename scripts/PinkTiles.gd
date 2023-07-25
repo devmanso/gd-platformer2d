@@ -1,5 +1,15 @@
 extends TileMap
 
+export var hidden : bool = false
+
+
+func _ready():
+	if hidden:
+		hide()
+		disable_collision()
+	else:
+		enable_collision()
+		show()
 
 func enable_collision():
 	var layer = get_collision_layer()
