@@ -156,7 +156,7 @@ func _physics_process(delta):
 
 func _process(delta):
 	if life:
-		isInteracting = is_interact_pressed()
+		is_interact_pressed()
 	if !life:
 		if Input.is_action_pressed("test"):
 			respawn()

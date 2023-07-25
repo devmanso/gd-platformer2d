@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var pinkTiles
 var player
-var on : bool = false
+export var on : bool = false
 var canInteract : bool
 var doInteractCheck : bool
 
@@ -24,10 +24,14 @@ func _on_InteractZone_body_entered(body):
 #				print("off")
 
 func _process(delta):
-	if canInteract:
+	if canInteract and !on:
 		if player.is_interact_pressed():
 			pinkTiles.disable_collision()
 			pinkTiles.hide()
+	elif canInteract and on:
+		if player.is_interact_pressed():
+			pinkTiles.enable_collision()
+			pinkTiles.show()
 
 
 func _on_InteractZone_body_exited(body):
