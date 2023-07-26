@@ -3,12 +3,17 @@ extends StaticBody2D
 export var yUnitsMoved = -360
 export var speed = -300
 export var isYaxis = true
+
+var key
+var player
 var initPosition: Vector2
 var endPosition: Vector2
 var isMoving = false
 var resetPosition = false
 
 func _ready():
+	player = get_parent().find_node("Player")
+	key = get_parent().find_node("Key")
 	initPosition = position
 	if isYaxis:
 		endPosition = Vector2(initPosition.x, initPosition.y + yUnitsMoved)
@@ -46,5 +51,9 @@ func _process(delta):
 
 
 func _on_KeyChecker_body_entered(body):
-	if "key" in body.name:
-		isMoving = true
+	print(body.name)
+	if "Player" in body.name:
+		if player.hasKey:
+			isMoving = true
+			key.used = true
+			player.hasKey = false
