@@ -26,7 +26,6 @@ func _ready():
 func _physics_process(delta):
 	
 	if canMove:
-	
 		if leftAndRight:
 			
 			if !isAtEnd:
@@ -60,17 +59,3 @@ func _physics_process(delta):
 		elif speed < 0 and position.y <= upEndPosition.y:
 			position.y = upEndPosition.y
 			isAtEnd = true
-		
-		
-		
-	
-	
-	
-#	if speed > 0 and position.x >= leftEndPosition.x:
-#		position.x = leftEndPosition.x
-#		isAtEnd = false
-#	elif speed < 0 and position.x <= leftEndPosition.x:
-#		position.x = leftEndPosition.x
-#		isAtEnd = false
-	
-	
