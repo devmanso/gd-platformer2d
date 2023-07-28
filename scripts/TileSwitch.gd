@@ -36,6 +36,13 @@ func _process(delta):
 			pinkTiles.show()
 			sprite.flip_h = true
 
+func turnOn():
+	pinkTiles.enable_collision()
+	pinkTiles.show()
+
+func turnOff():
+	pinkTiles.disable_collision()
+	pinkTiles.hide()
 
 func _on_InteractZone_body_exited(body):
 	canInteract = false

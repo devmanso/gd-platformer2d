@@ -51,7 +51,7 @@ func _process(delta):
 
 
 func _on_KeyChecker_body_entered(body):
-	print(body.name)
+	#print(body.name)
 	if "Player" in body.name:
 		if player.hasKey:
 			isMoving = true

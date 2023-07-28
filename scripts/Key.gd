@@ -20,7 +20,8 @@ func _ready():
 func _physics_process(delta):
 	
 	if sprite.modulate.a == 0.0:
-		queue_free()
+		queue_free() # delete key so that player can't retrieve it again
+		# and also so the player doesn't see the animation looping over
 	
 	if used:
 		fadeOutTimer += delta
