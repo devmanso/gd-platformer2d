@@ -12,6 +12,7 @@ var initPosition : Vector2
 var rightEndPosition : Vector2
 var leftEndPosition : Vector2
 var upEndPosition : Vector2
+var downEndPosition : Vector2
 var resetPosition : bool = false
 var isAtEnd : bool = false
 
@@ -19,6 +20,7 @@ func _ready():
 	sprite.hide()
 	initPosition = position
 	upEndPosition = Vector2(initPosition.x, initPosition.y + xUnitsMoved)
+	downEndPosition = Vector2(initPosition.x, initPosition.y - xUnitsMoved)
 	leftEndPosition = Vector2(initPosition.x - xUnitsMoved, initPosition.y)
 	rightEndPosition = Vector2(initPosition.x + xUnitsMoved, initPosition.y)
 
@@ -46,16 +48,28 @@ func _physics_process(delta):
 		elif !leftAndRight:
 			
 			if !isAtEnd:
-				position.y += speed * delta
+				position.y -= speed * delta
 			elif isAtEnd:
-				if position != initPosition:
-					position.y -= speed * delta
-				else:
-					isAtEnd = false
+				position.y += speed * delta
 			
-		if speed > 0 and position.y >= upEndPosition.y:
-			position.y = upEndPosition.y
-			isAtEnd = true
-		elif speed < 0 and position.y <= upEndPosition.y:
-			position.y = upEndPosition.y
-			isAtEnd = true
+			if speed > 0 and position.y <= downEndPosition.y:
+				position.y = downEndPosition.y
+				isAtEnd = true
+			elif speed > 0 and position.y >= upEndPosition.y:
+				position.y = upEndPosition.y
+				isAtEnd = false
+			
+#			if !isAtEnd:
+#				position.y += speed * delta
+#			elif isAtEnd:
+#				if position != initPosition:
+#					position.y -= speed * delta
+#				else:
+#					isAtEnd = false
+#
+#		if speed > 0 and position.y >= upEndPosition.y:
+#			position.y = upEndPosition.y
+#			isAtEnd = true
+#		elif speed < 0 and position.y <= upEndPosition.y:
+#			position.y = upEndPosition.y
+#			isAtEnd = true

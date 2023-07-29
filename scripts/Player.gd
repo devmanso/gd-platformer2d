@@ -16,7 +16,7 @@ onready var menubutton = $GiveUp
 onready var camera = $Cam
 
 export var walkspeed = 300
-export var jump_power = -900
+export var jump_power = -1000
 export var acceleration = 0.25
 export var friction = 0.1
 export var gravity = 2500

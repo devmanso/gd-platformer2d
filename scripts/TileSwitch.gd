@@ -14,7 +14,7 @@ func _ready():
 func _on_InteractZone_body_entered(body):
 	if "Player" in body.name:
 		canInteract = true
-		print("player found")
+		#print("player found")
 #		if !on:
 #			if player.is_interact_pressed():
 #				pinkTiles.disable_collision()
