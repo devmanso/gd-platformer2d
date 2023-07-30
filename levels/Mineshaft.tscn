@@ -17,6 +17,10 @@ position = Vector2( 856, 672 )
 rotation = -1.5708
 leftAndRight = false
 
+[node name="Block3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 600, 16 )
+rotation = -1.5708
+
 [node name="SpawnPoint" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1352, 760 )
 scale = Vector2( 2, 2 )
