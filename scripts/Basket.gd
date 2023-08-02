@@ -1,12 +1,13 @@
 extends StaticBody2D
 
-export var hiddenGroup = false
-
+var pinkTiles
 
 func handle_goal():
-	if hiddenGroup:
-		var hiddengroup = get_parent().find_node("HiddenGroup")
-		hiddengroup.show()
+	pinkTiles.hide()
+	pinkTiles.disable_collision()
+
+func _ready():
+	pinkTiles = get_parent().find_node("PinkCaveTMap")
 
 func _on_Goal_body_entered(body):
 	if "Ball" in body.name:
