@@ -64,6 +64,8 @@ var switchCounter = 0
 var isInteracting : bool
 var tileSwitch
 var hasKey : bool = false
+var mousePosition : Vector2
+var camTargetPosition : Vector2
 
 func flip_gravity():
 	gravity = -2500
@@ -86,6 +88,11 @@ func is_even(num):
 		return true
 	else:
 		return false
+
+func camera():
+	mousePosition = get_viewport().get_mouse_position()
+	camTargetPosition = get_global_transform().affine_inverse().xform(mousePosition)
+	camera.global_position = camTargetPosition
 
 func input(delta):
 	
@@ -151,6 +158,7 @@ func _physics_process(delta):
 		airDash = 0
 	if life:
 		input(delta)
+		#camera()
 	if health.hp <= 0:
 		die()
 		life = false
@@ -178,6 +186,7 @@ func respawn():
 	deathscreen.hide()
 	menubutton.hide()
 	respawnbutton.hide()
+	get_tree().reload_current_scene()
 
 func die():
 	life = false
