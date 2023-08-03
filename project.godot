@@ -24,11 +24,9 @@ config/name="platformer2d"
 run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
-[display]
+[debug]
 
-window/size/width=1920
-window/size/height=1080
-window/size/borderless=true
+settings/stdout/print_fps=true
 
 [global]
 

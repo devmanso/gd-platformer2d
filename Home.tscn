@@ -26,7 +26,7 @@ rotation = 1.5708
 
 [node name="SceneChanger" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1088, -56 )
-next_scene = "levels/Mineshaft.tscn"
+next_scene = "FinLevels/LevelOne.tscn"
 
 [node name="BlueCaveTMap" parent="." instance=ExtResource( 6 )]
 scale = Vector2( 5, 5 )
