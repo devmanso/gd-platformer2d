@@ -10,10 +10,6 @@
 
 [node name="Home" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( -16, 80 )
-scale = Vector2( 2, 2 )
-
 [node name="Wall" parent="." instance=ExtResource( 3 )]
 position = Vector2( -8, 160 )
 
@@ -40,3 +36,6 @@ scale = Vector2( 100, 2 )
 position = Vector2( -568, 1040 )
 rotation = 3.14159
 scale = Vector2( 100, 2 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( -16, 80 )

@@ -11,9 +11,10 @@ onready var animator = $AnimationPlayer
 onready var health = $Health
 onready var deathscreen = $DeathScreen
 onready var dash = $Dash
-onready var respawnbutton = $RespawnButton
-onready var menubutton = $GiveUp
+onready var respawnbutton = $buttons/RespawnButton
+onready var menubutton = $buttons/GiveUp
 onready var camera = $Cam
+onready var buttons = $buttons
 
 export var walkspeed = 300
 export var jump_power = -1000
@@ -66,6 +67,8 @@ var tileSwitch
 var hasKey : bool = false
 var mousePosition : Vector2
 var camTargetPosition : Vector2
+var buttonPosition : Vector2
+
 
 func flip_gravity():
 	gravity = -2500
@@ -101,13 +104,16 @@ func input(delta):
 	if Input.is_action_just_pressed("dash") and !dash.has_dashed:
 		dash.start_dash(duration)
 	
-	if Input.is_action_just_pressed("gravity"):
-		if !is_even(switchCounter) or switchCounter == 0:
-			flip_gravity()
-			switchCounter += 1
-		else:
-			switchCounter +=1
-			release_gravity()
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+	
+#	if Input.is_action_just_pressed("gravity"):
+#		if !is_even(switchCounter) or switchCounter == 0:
+#			flip_gravity()
+#			switchCounter += 1
+#		else:
+#			switchCounter +=1
+#			release_gravity()
 	
 	if Input.is_action_pressed("right"):
 		velocity.x = currentSpeed #walkspeed
@@ -165,6 +171,10 @@ func _physics_process(delta):
 	
 
 func _process(delta):
+	buttonPosition = Vector2(get_viewport_rect().size.x, get_viewport_rect().size.y)
+	#buttons.position = buttonPosition
+	#buttons.position = buttonPosition
+	
 	if life:
 		is_interact_pressed()
 	if !life:
@@ -201,7 +211,7 @@ func die():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "dead":
-		print("death anim finished")
+		pass
 
 
 func _on_RespawnButton_pressed():
