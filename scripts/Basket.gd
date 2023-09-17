@@ -3,6 +3,8 @@ extends StaticBody2D
 onready var redSprite = $RedSprite
 onready var blueSprite = $BlueSprite
 
+export var tmapname : String = "PinkCaveTMap"
+
 var pinkTiles
 var ballLeft : bool
 var playerLeft : bool
@@ -22,6 +24,7 @@ func reset():
 func _ready():
 	blueSprite.hide()
 	redSprite.show()
+	#pinkTiles = get_parent().find_node(tmapname)
 	pinkTiles = get_parent().find_node("PinkCaveTMap")
 
 func _on_Goal_body_entered(body):
