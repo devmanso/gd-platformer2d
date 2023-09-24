@@ -18,10 +18,10 @@ tile_data = PoolIntArray( -131083, 0, 786432, -131082, 0, 786433, -131081, 0, 78
 tile_data = PoolIntArray( 14, 0, 393216, 15, 0, 393219, 16, 0, 393221, 65550, 0, 655360, 65551, 0, 0, 65552, 0, 655365, 131086, 0, 458752, 131087, 0, 0, 131088, 0, 589829, 196622, 0, 524288, 196623, 0, 0, 196624, 0, 524293, 262158, 0, 458752, 262159, 0, 0, 262160, 0, 655365, 327694, 0, 720896, 327695, 0, 720897, 327696, 0, 720901 )
 
 [node name="Basket" parent="." instance=ExtResource( 6 )]
-position = Vector2( 128, 232 )
+position = Vector2( -224, 520 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 328, 176 )
+position = Vector2( 184, 192 )
 
 [node name="SceneChanger" parent="." instance=ExtResource( 5 )]
 position = Vector2( 760, 152 )

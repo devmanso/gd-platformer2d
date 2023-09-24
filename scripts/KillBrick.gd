@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 export var damage = 100
-export var isVisible = false
+export var isVisible = true
 onready var sprite = $Sprite
 
 func _ready():
