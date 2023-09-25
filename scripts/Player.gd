@@ -23,13 +23,13 @@ export var friction = 0.1
 export var gravity = 2500
 export var death_text = [
 	"You are dead!",
-	"HAHAHAHAHAHA",
-	"HAHAHAHAHAHAHHAHAHHAHHAHAHAHAHAHHAHHAHHAHHAHAHHAHAHHAHAA",
+	"//insert text here before release",
+	":`(",
 	"Try again?",
 	"This text is randomized -_-",
 	":(",
-	"walrus gaming :<",
-	"press Alt+F4 to activate cheats",
+	"pancreas",
+	"...",
 	"https://youtu.be/dQw4w9WgXcQ"
 ]
 export var dashspeed = 1000.0
