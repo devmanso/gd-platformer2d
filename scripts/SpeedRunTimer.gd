@@ -22,8 +22,10 @@ func _physics_process(delta):
 		var ms = speedruntime %1000 /100
 		var timetext = str(minutes) + "m:" + str(seconds) + "s:" + str(ms) + "ms"
 		timertext.text = timetext
+		timertext.hide()
 	else:
 		timertext.text = "OFF"
+		timertext.hide()
 
 func get_world():
 	var scene_name = str(get_tree().current_scene)

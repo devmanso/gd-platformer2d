@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/peas_plate.png" type="Texture" id=1]
+[ext_resource path="res://scripts/TV.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 104.0
+
+[node name="PlateOfPeas" type="Area2D"]
+script = ExtResource( 3 )
+text = "peas"
+secondText = "Scientific name: Pisum sativum, 59 kcal, 4g protien, 12g carbs, 4 g sugar, 21.2mg Calcium, 1mg Iron per 1/2 cup"
+
+[node name="InteractArea" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="PeasPlate" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_TV_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_TV_body_exited"]
