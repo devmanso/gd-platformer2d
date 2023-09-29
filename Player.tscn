@@ -183,8 +183,10 @@ anims/walking = SubResource( 4 )
 
 [node name="Cam" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 2, 2 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+smoothing_enabled = true
 
 [node name="DeathScreen" type="TextEdit" parent="."]
 margin_left = -96.0

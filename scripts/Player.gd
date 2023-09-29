@@ -16,6 +16,7 @@ onready var menubutton = $buttons/GiveUp
 onready var camera = $Cam
 onready var buttons = $buttons
 
+export var camSmoothing = 5
 export var walkspeed = 300
 export var jump_power = -1000
 export var acceleration = 0.25
@@ -171,6 +172,7 @@ func _physics_process(delta):
 	
 
 func _process(delta):
+	camera.smoothing_speed = camSmoothing
 	buttonPosition = Vector2(get_viewport_rect().size.x, get_viewport_rect().size.y)
 	#buttons.position = buttonPosition
 	#buttons.position = buttonPosition
