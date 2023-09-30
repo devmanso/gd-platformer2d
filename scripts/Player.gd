@@ -1,10 +1,5 @@
 extends KinematicBody2D
 
-#note to self:
-# credit https://penzilla.itch.io/hooded-protagonist
-# in a README file
-# before uploading to git
-
 onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
 onready var animator = $AnimationPlayer
@@ -180,8 +175,6 @@ func _physics_process(delta):
 		airDash = 0
 	if life:
 		input(delta)
-		
-		#camera()
 	if health.hp <= 0:
 		die()
 		life = false
@@ -190,8 +183,6 @@ func _physics_process(delta):
 func _process(delta):
 	camera.smoothing_speed = camSmoothing
 	buttonPosition = Vector2(get_viewport_rect().size.x, get_viewport_rect().size.y)
-	#buttons.position = buttonPosition
-	#buttons.position = buttonPosition
 	
 	if life:
 		is_interact_pressed()
