@@ -6,7 +6,6 @@ export var xUnitsMoved = 360
 export var speed : float = 300
 export var leftAndRight : bool = true
 
-
 var canMove : bool = true
 var initPosition : Vector2
 var rightEndPosition : Vector2
