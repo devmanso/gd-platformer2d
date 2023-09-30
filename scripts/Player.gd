@@ -69,7 +69,9 @@ var hasKey : bool = false
 var mousePosition : Vector2
 var camTargetPosition : Vector2
 var buttonPosition : Vector2
-
+var currentSpeed
+var diagAirVelocity
+var fixedDashVelocity
 
 func flip_gravity():
 	gravity = -2500
@@ -100,10 +102,11 @@ func camera():
 
 func input(delta):
 	
-	var currentSpeed = dashspeed if dash.is_dashing() else walkspeed
+	currentSpeed = dashspeed if dash.is_dashing() else walkspeed
 	
 	if Input.is_action_just_pressed("dash") and !dash.has_dashed:
 		dash.start_dash(duration)
+		#print("dashing")
 	
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
@@ -129,8 +132,8 @@ func input(delta):
 		animator.play("RESET")
 	
 	if !is_on_floor() and !is_on_ceiling():
+		#animator.play("jump")
 		animator.play("single_frame_jump")
-	
 	
 	if Input.is_action_pressed("jump"):
 		if is_on_floor():
@@ -139,15 +142,27 @@ func input(delta):
 			velocity.y = inversed_jump_power
 		elif Input.is_action_just_pressed("dash") and airDash <maxAirDashes:
 			
-			if Input.is_action_just_pressed("dash"):
+			if Input.is_action_just_pressed("dash") and !is_on_floor():
 				airDash +=1
 			
 			if Input.is_action_pressed("right"):
 				velocity.x = currentSpeed
-				velocity.y = -currentSpeed * airDashBoost
+				# dogwater ass fix
+				# perform calculation to determine y velocity for a
+				# diagonal dash as a positive number(jump dash), 
+				# and then clamp it to 1100, then make the number
+				# negative, and assing the negative-clamped value to
+				# velocity.y
+				diagAirVelocity = currentSpeed * airDashBoost
+				fixedDashVelocity = clamp(diagAirVelocity, 0, 1100)
+				velocity.y = -1 * (fixedDashVelocity)
+				#print(velocity.y)
 			elif Input.is_action_pressed("left"):
 				velocity.x = -currentSpeed
-				velocity.y = -currentSpeed * airDashBoost
+				diagAirVelocity = currentSpeed * airDashBoost
+				fixedDashVelocity = clamp(diagAirVelocity, 0, 1100)
+				velocity.y = -1 * (fixedDashVelocity)
+				#print(velocity.y)
 	
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -165,6 +180,7 @@ func _physics_process(delta):
 		airDash = 0
 	if life:
 		input(delta)
+		
 		#camera()
 	if health.hp <= 0:
 		die()
