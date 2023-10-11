@@ -1,10 +1,14 @@
 extends StaticBody2D
 
 onready var sprite = $Sprite
+onready var metalTilemaps = $MetalTMaps
+onready var defaultTilemap = $StoneTMap
 
 export var xUnitsMoved = 360
 export var speed : float = 300
 export var leftAndRight : bool = true
+export var useMetalTilemaps : bool = false
+export var flipHorizontal : bool = false
 
 var canMove : bool = true
 var initPosition : Vector2
@@ -16,7 +20,12 @@ var resetPosition : bool = false
 var isAtEnd : bool = false
 
 func _ready():
+	if flipHorizontal:
+		scale.x *= -1
 	sprite.hide()
+	if useMetalTilemaps:
+		metalTilemaps.show()
+		defaultTilemap.hide()
 	initPosition = position
 	upEndPosition = Vector2(initPosition.x, initPosition.y + xUnitsMoved)
 	downEndPosition = Vector2(initPosition.x, initPosition.y - xUnitsMoved)

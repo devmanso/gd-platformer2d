@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://art/block.png" type="Texture" id=1]
 [ext_resource path="res://assets/BlueCaveTMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/MovingBlock.gd" type="Script" id=3]
 [ext_resource path="res://assets/StoneTMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/MetalTMap.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 98 )
@@ -25,3 +26,15 @@ shape = SubResource( 1 )
 
 [node name="StoneTMap" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 4, 65535, 0, 65536, 0, 0, 196612, 131071, 0, 131072, 65536, 0, 131076, 196607, 0, 65536, 131072, 0, 65540, 262143, 0, 262144, 196608, 0, 262148 )
+
+[node name="MetalTMaps" type="Node2D" parent="."]
+visible = false
+
+[node name="MetalTMap" parent="MetalTMaps" instance=ExtResource( 5 )]
+tile_data = PoolIntArray( -1, 0, 65536, -65536, 0, 65537, 65535, 0, 131072, 0, 0, 131073 )
+
+[node name="MetalTMap2" parent="MetalTMaps" instance=ExtResource( 5 )]
+tile_data = PoolIntArray( 196607, 0, 65536, 131072, 0, 65537, 262143, 0, 131072, 196608, 0, 131073 )
+
+[node name="MetalTMap3" parent="MetalTMaps" instance=ExtResource( 5 )]
+tile_data = PoolIntArray( 131071, 0, 0, 65536, 0, 0 )
